@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:40:37 by adjelili          #+#    #+#             */
-/*   Updated: 2025/11/18 19:23:15 by adjelili         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:58:41 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static char	**ft_free(char ***tab, int x)
 {
 	while (x >= 0)
 	{
-		free (tab[x]);
+		free ((*tab)[x]);
 		x--;
 	}
-	free (tab);
+	free (*tab);
 	return (NULL);
 }
 
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	{
 		ft_length(s, c, &i, &j);
 		tab[m] = malloc(sizeof(char) * (j - i) + 1);
-		if (!tab)
+		if (!tab[m])
 			return (ft_free(&tab, m));
 		ft_fill(s, tab[m], i, j);
 		i = j;
