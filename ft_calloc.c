@@ -6,7 +6,7 @@
 /*   By: adjelili <adjelili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 18:14:19 by adjelili          #+#    #+#             */
-/*   Updated: 2025/11/18 17:43:48 by adjelili         ###   ########.fr       */
+/*   Updated: 2025/11/21 10:25:45 by adjelili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	y;
 	char	*ptr;
 
-	if (!nmemb && !size && size > (SIZE_MAX - 1) / nmemb)
+	if (nmemb != 0 && size >= (SIZE_MAX - 1) / nmemb)
 		return (NULL);
 	y = 0;
 	ptr = malloc(size * nmemb);
